@@ -57,11 +57,60 @@
   </div>
   </section>
 
+
+  
+  <section class="section">
+    <div class="container">
+  <!-- Method. -->
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-two-thirds">
+      <h2 class="title is-2">Method</h2>
+      <div class="columns is-centered has-text-centered">
+        <img src="./resources/figure_2_page-0001.jpg" style="width: 100%;" alt="vq-bet">
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          Overview of VQ-BeT, broken down into the residual VQ encoder-decoder training phase and the VQ-BeT training phase. The same architecture works for both conditional and unconditional cases with an optional goal input. In the bottom right, we show a detailed view of the hierarchical code prediction method.
+        </p>
+      </div>
+    </div>
+  </div>
+  </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container">
+  <!-- Method. -->
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-two-thirds">
+      <h2 class="title is-2">Experiment Results</h2>
+      <div class="columns is-centered has-text-centered">
+        <img src="./resources/unconditional_with_numbers_page-0001.jpg" style="width: 100%;" alt="vq-bet">
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          Evaluation of unconditional tasks in simulation environments of VQ-BeT and related baselines. VQ-BeT achieves the best performance in most simulation environments and comparable performance with the best baseline on BlockPush and Image Kitchen.
+        </p>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <img src="./resources/conditional_with_numbers_page-0001.jpg" style="width: 100%;" alt="vq-bet">
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          Evaluation of conditional tasks in simulation environments of VQ-BeT and related baselines. VQ-BeT achieves the best performance in most simulation environments and comparable performance with the best baseline on BlockPush.
+        </p>
+      </div>
+    </div>
+  </div>
+  </div>
+  </section>
+
   <section class="section" style="width: 95%; margin: 0 auto;">
     <div class="container">
         <div class="columns is-centered">
             <div class="column is-three-quarters">
-                <h3 class="title is-2" style="text-align: center; padding-bottom: 6px;"><bold>VQ-BeT on Simulated Manipulation Tasks</bold></h3>
+                <h3 class="title is-2" style="text-align: center; padding-bottom: 6px;"><bold>VQ-BeT on Play Kitchen Tasks</bold></h3>
                 <div class="column is-full-width">
                   <div class="content has-text-centered">
                       <p style="text-align: center; font-size: 16px"> </p>
@@ -69,14 +118,68 @@
               </div>
                 <div class="columns is-centered has-text-centered">
                     <div class="column is-half">
-                        <video class="center" playsinline autoplay loop muted src="./resources/kitchen.mp4" width="100%"
+                        <p>
+                          Toaster Closing
+                        </p>
+                        <video class="center" playsinline autoplay loop muted src="./resources/toaster_closing.mp4" width="100%"
                             style="border-radius:10px;"></video>
                     </div>
                     <div class="column is-half">
-                        <video class="center" playsinline autoplay loop muted src="./resources/ur3.mp4" width="100%"
+                        <p>
+                          Pick and Place Can Toaster Closing
+                        </p>
+                        <video class="center" playsinline autoplay loop muted src="./resources/pick_place_can_toaster_closing.mp4" width="100%"
                             style="border-radius:10px;"></video>
                     </div>
                 </div>
+                <div class="columns is-centered has-text-centered">
+                  <div class="column is-half">
+                      <p>
+                        Toaster and Fridge Closing
+                      </p>
+                      <video class="center" playsinline autoplay loop muted src="./resources/toaster_and_fridge_closing.mp4" width="100%"
+                          style="border-radius:10px;"></video>
+                  </div>
+                  <div class="column is-half">
+                      <p>
+                        Fridge Closing
+                      </p>
+                      <video class="center" playsinline autoplay loop muted src="./resources/fridge_closing.mp4" width="100%"
+                          style="border-radius:10px;"></video>
+                  </div>
+              </div>
+              <div class="columns is-centered has-text-centered">
+                <div class="column is-half">
+                    <p>
+                      Toaster Opening
+                    </p>
+                    <video class="center" playsinline autoplay loop muted src="./resources/toaster_opening.mp4" width="100%"
+                        style="border-radius:10px;"></video>
+                </div>
+                <div class="column is-half">
+                    <p>
+                      Pick and Place Fridge Closing
+                    </p>
+                    <video class="center" playsinline autoplay loop muted src="./resources/pick_place_fridge_closing.mp4" width="100%"
+                        style="border-radius:10px;"></video>
+                </div>
+            </div>
+            <div class="columns is-centered has-text-centered">
+              <div class="column is-half">
+                  <p>
+                    Pick and Place Can Fridge
+                  </p>
+                  <video class="center" playsinline autoplay loop muted src="./resources/pick_place_can_fridge.mp4" width="100%"
+                      style="border-radius:10px;"></video>
+              </div>
+              <div class="column is-half">
+                  <p>
+                    Pick and Place Can Toaster
+                  </p>
+                  <video class="center" playsinline autoplay loop muted src="./resources/pick_place_can_toaster.mp4" width="100%"
+                      style="border-radius:10px;"></video>
+              </div>
+          </div>
             </div>
         </div>
     </div>
