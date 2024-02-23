@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VQ-BeT: Behavior Generation with Latent Actions</title>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <link rel="icon" href="./favicon.ico?">
+  <style>
+    .navigation-buttons {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: 20px;
+      max-width: 900px; /* Example: match Bulma's container max-width at certain breakpoints */
+      margin: 0 auto; /* Center align the div */
+    }
+    
+    .nav-button {
+    flex: 1;
+    display: inline-flex;
+    align-items: flex-end; /* Align items to the end (bottom) of the container */
+    justify-content: center;
+    padding: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 10px;
+    height: 280px;
+    border-radius: 25px;
+    filter: grayscale(100%);
+    text-decoration: none; /* Removes underline from links */
+    position: relative; /* Ensures the button is positioned relatively for absolute positioning of text */
+  }
+  
+  .button-text {
+    background-color: rgba(128, 128, 128, 0.5); /* Semi-transparent gray */
+    color: white; /* Text color */
+    padding: 5px 10px; /* Adjust padding for readability */
+    border-radius: 5px; /* Optional: adds rounded corners to the text background */
+    position: absolute; /* Position the text absolutely within the button */
+    bottom: 10px; /* Distance from the bottom of the button */
+  }
+  
+  .nav-button:hover .button-text {
+    color: white; /* Changes text color on hover */
+  }
+  .nav-button:hover {
+    filter: grayscale(0%);
+  }
+    
+    #realworld-button {
+      background-image: url('./resources/button_realworld_gray.png');
+    }
+
+    #realworld-button:hover {
+      background-image: url('./resources/button_realworld.png');
+    }
+    
+    #simulated-button {
+      background-image: url('./resources/button_simulated_gray.png');
+    }
+    
+    #simulated-button:hover {
+      background-image: url('./resources/button_simulated.png');
+    }
+    </style>
+</head>
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="index.html">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Contents
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="./realworld_index.html">
+              Real-World Videos
+            </a>
+            <a class="navbar-item" href="./simulated_index.html">
+              Simulated-World Videos
+            </a>
+            <a class="navbar-item" href="./driving_index.html">
+              Autonomous Driving
+            </a>
+            <a class="navbar-item" href="index.html">
+              Code
+            </a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">VQ-BeT: Behavior Generation with Latent Actions</h1>
+        <div class="column has-text-centered">
+        <div class="publication-links">
+          <!-- PDF Link. -->
+          <span class="link-block">
+            <a target="_blank" href="./resources/2259_behavior_generation_with_laten.pdf"
+                class="external-link button is-normal is-rounded is-dark">
+              <span>Paper</span>
+            </a>
+          </span>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <h3 class="title is-3"><bold>VQ-BeT for Autonomous Driving</bold></h3>
+          <div class="columns is-centered has-text-centered">
+            <h5 class="title is-5" style="text-align: center; padding-bottom: 6px;">Forward</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <img src="./resources/nuscenes-results/forward/0278.png" style="width: 100%;" alt="vq-bet">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <img src="./resources/nuscenes-results/forward/0490.png" style="width: 100%;" alt="vq-bet">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <img src="./resources/nuscenes-results/forward/0774.png" style="width: 100%;" alt="vq-bet">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <img src="./resources/nuscenes-results/forward/1164.png" style="width: 100%;" alt="vq-bet">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <img src="./resources/nuscenes-results/stop/2384.png" style="width: 100%;" alt="vq-bet">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <h5 class="title is-5" style="text-align: center; padding-bottom: 6px;">Turn Left</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <img src="./resources/nuscenes-results/left/0376.png" style="width: 100%;" alt="vq-bet">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <img src="./resources/nuscenes-results/left/0530.png" style="width: 100%;" alt="vq-bet">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <img src="./resources/nuscenes-results/left/0606.png" style="width: 100%;" alt="vq-bet">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <h5 class="title is-5" style="text-align: center; padding-bottom: 6px;">Turn Right</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <img src="./resources/nuscenes-results/right/0942.png" style="width: 100%;" alt="vq-bet">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <img src="./resources/nuscenes-results/right/1802.png" style="width: 100%;" alt="vq-bet">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <img src="./resources/nuscenes-results/right/2838.png" style="width: 100%;" alt="vq-bet">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <h5 class="title is-5" style="text-align: center; padding-bottom: 6px;">Stop</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <img src="./resources/nuscenes-results/stop/1972.png" style="width: 100%;" alt="vq-bet">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <img src="./resources/nuscenes-results/stop/2110.png" style="width: 100%;" alt="vq-bet">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <img src="./resources/nuscenes-results/stop/2304.png" style="width: 100%;" alt="vq-bet">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <h5 class="title is-5" style="text-align: center; padding-bottom: 6px;">Failure Cases</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <img src="./resources/nuscenes-results/failure/0180.png" style="width: 100%;" alt="vq-bet">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <img src="./resources/nuscenes-results/failure/0378.png" style="width: 100%;" alt="vq-bet">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <img src="./resources/nuscenes-results/failure/0442.png" style="width: 100%;" alt="vq-bet">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>Source code credit to <a href="https://nerfies.github.io/"><span class="dnerf">Nerfies</span></a>.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

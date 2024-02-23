@@ -4,6 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>VQ-BeT: Behavior Generation with Latent Actions</title>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -22,19 +33,144 @@
   <script src="./static/js/index.js"></script>
 
   <link rel="icon" href="./favicon.ico?">
+  <style>
+    .navigation-buttons {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: 20px;
+      max-width: 900px; /* Example: match Bulma's container max-width at certain breakpoints */
+      margin: 0 auto; /* Center align the div */
+    }
+    
+    .nav-button {
+    flex: 1;
+    display: inline-flex;
+    align-items: flex-end; /* Align items to the end (bottom) of the container */
+    justify-content: center;
+    padding: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 10px;
+    height: 280px;
+    border-radius: 25px;
+    filter: grayscale(100%);
+    text-decoration: none; /* Removes underline from links */
+    position: relative; /* Ensures the button is positioned relatively for absolute positioning of text */
+  }
+  
+  .button-text {
+    background-color: rgba(128, 128, 128, 0.5); /* Semi-transparent gray */
+    color: white; /* Text color */
+    padding: 5px 10px; /* Adjust padding for readability */
+    border-radius: 5px; /* Optional: adds rounded corners to the text background */
+    position: absolute; /* Position the text absolutely within the button */
+    bottom: 10px; /* Distance from the bottom of the button */
+  }
+  
+  .nav-button:hover .button-text {
+    color: black; /* Changes text color on hover */
+    background-color: rgba(255, 255, 255, 1); 
+  }
+  .nav-button:hover {
+    filter: grayscale(0%);
+  }
+    
+    #realworld-button {
+      background-image: url('./resources/button_realworld_gray.png');
+    }
+
+    #realworld-button:hover {
+      background-image: url('./resources/button_realworld_gray.png');
+    }
+    
+    #simulated-button {
+      background-image: url('./resources/button_simulated_gray.png');
+    }
+    
+    #simulated-button:hover {
+      background-image: url('./resources/button_simulated_gray.png');
+    }
+
+    #driving-button {
+      background-image: url('./resources/driving_button.png');
+    }
+    
+    #code-button {
+      background-image: url('./resources/codebase_button.png');
+    }
+    
+    </style>
 </head>
 <body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="index.html">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Contents
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="./realworld_index.html">
+              Real-World Videos
+            </a>
+            <a class="navbar-item" href="./simulated_index.html">
+              Simulated-World Videos
+            </a>
+            <a class="navbar-item" href="./driving_index.html">
+              Autonomous Driving
+            </a>
+            <a class="navbar-item" href="index.html">
+              Code
+            </a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </nav>
 
 <section class="hero">
   <div class="hero-body">
     <div class="container">
       <div class="columns is-centered">
+        
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">VQ-BeT: Behavior Generation with Latent Actions</h1>
-
-
-          </div>
+        <div class="column has-text-centered">
+        <div class="publication-links">
+          <!-- PDF Link. -->
+          <span class="link-block">
+            <a target="_blank" href="./resources/2259_behavior_generation_with_laten.pdf"
+                class="external-link button is-normal is-rounded is-dark">
+              <span>Paper</span>
+            </a>
+          </span>
         </div>
+        
+      </div>
+    </div>
+  </div>
 
   
 
@@ -55,187 +191,60 @@
       </div>
     </div>
   </div>
-  <div class="column has-text-centered">
-    <div class="publication-links">
-      <!-- PDF Link. -->
-      <span class="link-block">
-        <a target="_blank" href="./resources/2259_behavior_generation_with_laten.pdf"
-           class="external-link button is-normal is-rounded is-dark">
-          <span>Paper</span>
-        </a>
-      </span>
 
-    </div>
-
-  </div>
-  </section>
-
-
-  <section class="section" style="width: 95%; margin: 0 auto;">
-    <div class="container">
-        <div class="columns is-centered">
-            <div class="column is-three-quarters">
-                <h3 class="title is-3" style="text-align: center; padding-bottom: 6px;"><bold>VQ-BeT on Real-World Kitchen Tasks</bold></h3>
-                <div class="column is-full-width">
-                  <div class="content has-text-centered">
-                      <p style="text-align: center; font-size: 16px"> </p>
-                  </div>
-              </div>
-                <div class="columns is-centered has-text-centered">
-                    <div class="column is-half">
-                        <p>
-                          Toaster Closing (X4)
-                        </p>
-                        <video class="center" playsinline autoplay loop muted src="./resources/movies/toaster_closing.mov" width="100%"
-                            style="border-radius:10px;"></video>
-                    </div>
-                    <div class="column is-half">
-                        <p>
-                          Pick and Place Can Toaster Closing (X4)
-                        </p>
-                        <video class="center" playsinline autoplay loop muted src="./resources/movies/pick_place_can_toaster_closing.mov" width="100%"
-                            style="border-radius:10px;"></video>
-                    </div>
-                </div>
-                <div class="columns is-centered has-text-centered">
-                  <div class="column is-half">
-                      <p>
-                        Toaster and Fridge Closing (X4)
-                      </p>
-                      <video class="center" playsinline autoplay loop muted src="./resources/movies/toaster_and_fridge_closing.mov" width="100%"
-                          style="border-radius:10px;"></video>
-                  </div>
-                  <div class="column is-half">
-                      <p>
-                        Fridge Closing (X4)
-                      </p>
-                      <video class="center" playsinline autoplay loop muted src="./resources/movies/fridge_closing.mov" width="100%"
-                          style="border-radius:10px;"></video>
-                  </div>
-              </div>
-              <div class="columns is-centered has-text-centered">
-                <div class="column is-half">
-                    <p>
-                      Toaster Opening (X4)
-                    </p>
-                    <video class="center" playsinline autoplay loop muted src="./resources/movies/toaster_opening.mov" width="100%"
-                        style="border-radius:10px;"></video>
-                </div>
-                <div class="column is-half">
-                    <p>
-                      Pick and Place Fridge Closing (X4)
-                    </p>
-                    <video class="center" playsinline autoplay loop muted src="./resources/movies/pick_place_fridge_closing.mov" width="100%"
-                        style="border-radius:10px;"></video>
-                </div>
-            </div>
-            <div class="columns is-centered has-text-centered">
-              <div class="column is-half">
-                  <p>
-                    Pick and Place Can Fridge (X4)
-                  </p>
-                  <video class="center" playsinline autoplay loop muted src="./resources/movies/pick_place_can_fridge.mov" width="100%"
-                      style="border-radius:10px;"></video>
-              </div>
-              <div class="column is-half">
-                  <p>
-                    Pick and Place Can Toaster (X4)
-                  </p>
-                  <video class="center" playsinline autoplay loop muted src="./resources/movies/pick_place_can_toaster.mov" width="100%"
-                      style="border-radius:10px;"></video>
-              </div>
-          </div>
-            </div>
-        </div>
-    </div>
-  </section>
 
   <section class="section">
     <div class="container">
       <div class="columns is-centered has-text-centered">
         <div class="column is-two-thirds">
-          <h3 class="title is-3"><bold>VQ-BeT on Long-Horizon Real-World Kitchen Tasks</bold></h3>
           <div class="columns is-centered has-text-centered">
-            <h5 class="title is-5" style="text-align: center; padding-bottom: 6px;">[Can to Fridge → Fridge Closing → Toaster Opening] (X5)</h5>
-            <!-- <p>
-              Can to Fridge → Fridge Closing → Toaster Opening
-            </p> -->
-          </div>
-          <div class="columns is-centered has-text-centered">
-            <video class="center" playsinline autoplay loop muted src="./resources/long_horizon1.mov" width="100%"
+            <video class="center" playsinline autoplay loop muted src="./resources/vqbet-thumbnail.mp4" width="100%"
                 style="border-radius:10px;"></video>
-          </div>
-          <div class="columns is-centered has-text-centered">
-            <img src="./resources/long_hor1.png" style="width: 100%;" alt="vq-bet">
-          </div>
-
-          <div class="columns is-centered has-text-centered">
-            <h5 class="title is-5" style="text-align: center; padding-bottom: 6px;">[Can to Toaster → Toaster Closing → Fridge Closing] (X5)</h5>
-            <!-- <p>
-              Can to Toaster → Toaster Closing → Fridge Closing
-            </p> -->
-          </div>
-          <div class="columns is-centered has-text-centered">
-            <video class="center" playsinline autoplay loop muted src="./resources/long_horizon2.MOV" width="100%"
-                style="border-radius:10px;"></video>
-          </div>
-          <div class="columns is-centered has-text-centered">
-            <img src="./resources/long_hor2.png" style="width: 100%;" alt="vq-bet">
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="width: 95%; margin: 0 auto;">
-    <div class="container">
-        <div class="columns is-centered">
-            <div class="column is-three-quarters">
-                <h3 class="title is-3" style="text-align: center; padding-bottom: 6px;"><bold>VQ-BeT on Simulated Tasks</bold></h3>
-                <div class="column is-full-width">
-                  <div class="content has-text-centered">
-                      <p style="text-align: center; font-size: 16px"> </p>
-                  </div>
-              </div>
-                <div class="columns is-centered has-text-centered">
-                    <div class="column is-half">
-                        <p>
-                          Franka Kitchen
-                        </p>
-                        <video class="center" playsinline autoplay loop muted src="./resources/kitchen.mp4" width="100%"
-                            style="border-radius:10px;"></video>
-                    </div>
-                    <div class="column is-half">
-                        <p>
-                          UR3 Multimodal (X2)
-                        </p>
-                        <video class="center" playsinline autoplay loop muted src="./resources/ur3_crop.mp4" width="100%"
-                            style="border-radius:10px;"></video>
-                    </div>
-                </div>
-                <div class="columns is-centered has-text-centered">
-                  <div class="column is-half">
-                      <p>
-                        Ant Multimodal
-                      </p>
-                      <video class="center" playsinline autoplay loop muted src="./resources/ant.mp4" width="100%"
-                          style="border-radius:10px;"></video>
-                  </div>
-                  <div class="column is-half">
-                      <p>
-                        PushT
-                      </p>
-                      <video class="center" playsinline autoplay loop muted src="./resources/pusht.mp4" width="100%"
-                          style="border-radius:10px;"></video>
-                  </div>
-              </div>
-            </div>
+
+  <section class="section">
+    <div class="container"> <!-- This container aligns the button section with other content -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-half">
+          <div class="navigation-buttons">
+            <a href="./realworld_index.html" class="nav-button" id="realworld-button">
+              <span class="button-text">Real-World Videos</span>
+            </a>
+          </div>
         </div>
+        <div class="column is-half">
+          <div class="navigation-buttons">
+            <a href="./simulated_index.html" class="nav-button" id="simulated-button">
+              <span class="button-text">Simulated-World Videos</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-half">
+          <div class="navigation-buttons">
+            <a href="./driving_index.html" class="nav-button" id="driving-button">
+              <span class="button-text"> Autonomous Driving</span>
+            </a>
+          </div>
+        </div>
+        <div class="column is-half">
+          <div class="navigation-buttons">
+            <a href="index.html" class="nav-button" id="code-button">
+              <span class="button-text">Code</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-
-  
   <section class="section">
     <div class="container">
   <!-- Method. -->
